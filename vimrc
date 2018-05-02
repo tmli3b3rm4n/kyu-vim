@@ -34,58 +34,7 @@
 	set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,tabpages,winsize,winpos
 " }"}}}
 "
-" Vim UI {"{{{
-    if has("gui_running")
-        if has("gui_macvim")
-            set guifont=Menlo\ Regular:h14
-        elseif has("gui_win32")
-            set guifont=Consolas:h11:cANSI
-        else 
-            set guifont=DejaVu\ Sans\ Mono\ 10
-        endif
-    else 
-	    set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
-    endif
-	set t_Co=256
-	colorscheme wombat256mod
-    "colorscheme PaperColor
-	"set cursorline			" hightlight current line
-	"set cursorcolumn
-	set laststatus=2		" always show status line even when only one file open
-	if has("statusline")
-		set statusline=%<%f								" Filename
-		set statusline+=\ %w%h%m%r						" Options
-		set statusline+=\ [%{HasPaste()}]				" check paste
-		"set statusline+=\ [%{getcwd()}]				" current dir
-		"set statusline+=\ [A=\%03.3b/H=\%02.2B]		" ASCII / Hexadecimal value of char
-		set statusline+=%=
-		set statusline+=%#warningmsg#
-		set statusline+=%{SyntasticStatuslineFlag()}	" display syntax error by Syntastic plugin
-		set statusline+=%*
-		set statusline+=\ [%{&ff}/%Y]					" filetype
-		set statusline+=\ \ %-14.(%l,%c%V%)\ %p%%		" Right aligned file nav info
-		hi StatusLine   ctermbg=25 ctermfg=white		" active status line
-		hi StatusLineNC ctermbg=237 ctermfg=245			" inactive status line
-	endif
-	set ru
-	set backspace=start,indent,eol
-	set ic					" case insensitive search
-	set hls					" highlight search
-	set incsearch			" Show the next match while entering a search
-	"set lbr				" wrap text instead of being on one line
-	set wildmenu			" enable wildmenu
-	set wildmode=longest:full
-	set winminheight=0		" windows can be 0 line high
-	" ignore these files while expanding wild chars
-	set wildignore+=.svn,CVS,.git
-	set wildignore+=*.o,*.a,*.class,*.mo,*.la,*.so,*.lo,*.la,*.obj,*.pyc
-	set wildignore+=*.exe,*.zip,*.jpg,*.png,*.gif,*.jpeg
-	"set list
-    "set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
-	set splitbelow
-	set cmdheight=2
-" }"}}}
-"
+ N”
 " Formatting {"{{{
     " line margin when moving cursor, use 999 to keep the cursor centered when switching buffer.
     " See http://vim.wikia.com/wiki/Avoid_scrolling_when_switch_buffers
@@ -213,7 +162,6 @@
 
 	" ctags
 	" load tag file when open vim
-	autocmd VimEnter * exec ":call Addtags()" 
 	"map <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 	" open definition in a split window
 	map <C-Y> <C-W><C-]>
